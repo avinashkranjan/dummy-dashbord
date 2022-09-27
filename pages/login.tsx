@@ -1,28 +1,14 @@
-import { useState, useMutation } from "react";
+import { useState } from "react";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [login, { data }] = useMutation(LOGIN_MUTATION, {
-    update(_, result) {
-      console.log(result);
-    },
-    onError(err) {
-      setError(err.graphQLErrors[0].message);
-      setLoading(false);
-    },
-    variables: {
-      email,
-      password,
-    },
-  });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     setLoading(true);
-    login();
   };
 
   return (
