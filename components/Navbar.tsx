@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Navbar: React.FC = () => {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const logOut = () => {
     localStorage.clear();
@@ -11,9 +12,28 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="flex flex-no-wrap">
-        <div className="w-72 absolute sm:relative bg-gray-200 shadow md:h-screen flex-col justify-between hidden sm:flex">
+        <div
+          className={`${
+            isOpen ? "hidden" : ""
+          } w-screen md:w-72 z-40 absolute sm:relative bg-gray-200 shadow md:h-screen flex-col justify-between sm:flex`}
+        >
           <div className="px-4">
-            <div className="h-16 w-full flex justify-center">
+            <div className="h-16 w-full flex justify-between md:justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="md:hidden w-8 h-8 items-center hover:cursor-pointer"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                />
+              </svg>
               <img
                 className="mt-5"
                 src={"https://celetel.com/images/main_logo.svg?imwidth=256"}
@@ -302,7 +322,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
       </div>
-      <div
+      {/* <div
         className="w-64 z-40 absolute bg-gray-200 shadow md:h-screen flex-col justify-between sm:hidden transition duration-150 ease-in-out"
         id="mobile-nav"
       >
@@ -586,8 +606,8 @@ const Navbar: React.FC = () => {
               </svg>
             </li>
           </ul>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
     </nav>
   );
 };

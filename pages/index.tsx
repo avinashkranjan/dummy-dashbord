@@ -23,7 +23,7 @@ const Home: NextPage = () => {
           <div className="2/12">
             <Navbar />
           </div>
-          <div className="w-full">
+          <div className="md:w-full">
             <TopNav />
             <Table />
           </div>

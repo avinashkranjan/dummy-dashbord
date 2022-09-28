@@ -131,7 +131,7 @@ const Table: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="mx-4">
+        <div className="md:mx-4">
           <h1 className="pt-6 text-4xl text-slate-700 font-semibold">
             Customer Details
           </h1>
